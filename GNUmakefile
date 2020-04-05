@@ -7,7 +7,7 @@ all:
 
 rpm: sljit_svn
 	mkdir -p SOURCES && tar czpvf SOURCES/$(PROJ).tar.gz src sljit_svn
-	rpmbuild -ba -v --define "_topdir ${PWD}" SPECS/$(PROJ).spec
+	rpmbuild -ba --nodebuginfo -v --define "_topdir ${PWD}" SPECS/$(PROJ).spec
 	@ echo && printf "\x1B[32mRPM packages:\033[0m\n" && ls -1 RPMS/*
 
 deb: sljit_svn
